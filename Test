@@ -1,0 +1,34 @@
+import nltk
+from nltk.tokenize import sent_tokenize
+import collections
+
+
+nltk.download('punkt')
+with open('text_for_test.txt', 'r', encoding='utf-8') as f:
+    text = f.read()
+    tokens = sent_tokenize(text)
+    c = 0  # количество слов в тексте
+    k = {}  # предложение: "количество одноименных слов"
+    for i in range(len(tokens)):
+        c += len(tokens[i].split())
+    print(c // len(tokens))
+    for i in tokens:
+        for g in i.split():
+            if len(g) == 1 and g in 'ЙЦУКЕНГШЩЗХЪФЫВАПРОЛДЖЭЯЧСМИТЬБЮЁйцукенгшщзхъфывапролджэячсмитьбюё':
+                if i in k:
+                    k[i] += 1
+                else:
+                    k[i] = 1
+    max_val = max(k.values())
+    final_dict = {x: v for x, v in k.items() if v == max_val}
+    print(final_dict) # шаблон: {'предложение с наибольшим количеством односимвольных слов': количество}
+
+
+    def compute_tf(text):
+        tf_text = collections.Counter(text)
+        for i in tf_text:
+            tf_text[i] = tf_text[i] / float(len(text))
+        return tf_text['Гарри']  # выведем частотность слова "Гарри"
+
+
+    print(compute_tf(text.split()))
