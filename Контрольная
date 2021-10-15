@@ -1,0 +1,158 @@
+nltk.download('punkt')
+germiona = set()
+albus = set()
+dobby = set()
+
+with open("Garri_Potter_I_Dary_Smerti.txt", "r") as f:
+    text = f.read()
+    tok_sent = word_tokenize(text)
+    stems = []
+    k_germiona_Dary_Smerti = 0
+    k_albus_Dary_Smerti = 0
+    k_dobby_Dary_Smerti = 0
+    stemmer = SnowballStemmer("russian")
+    for i in range(len(tok_sent)):
+        token = stemmer.stem(tok_sent[i])
+        if token != "":
+            stems.append(token)
+        if token == 'гермион':
+            germiona.add(tok_sent[i])
+            k_germiona_Dary_Smerti += 1
+        elif token == 'альбус':
+            albus.add(tok_sent[i])
+            k_albus_Dary_Smerti += 1
+        elif token == 'добб':
+            dobby.add(tok_sent[i])
+            k_dobby_Dary_Smerti += 1
+    f.close()
+
+with open("Garri_Potter_I_Filosofsky_Kamen.txt", "r") as f:
+    text = f.read()
+    tok_sent = word_tokenize(text)
+    stems = []
+    k_germiona_Filosofsky_Kamen = 0
+    k_albus_Filosofsky_Kamen = 0
+    k_dobby_Filosofsky_Kamen = 0
+    stemmer = SnowballStemmer("russian")
+    for i in range(len(tok_sent)):
+        token = stemmer.stem(tok_sent[i])
+        if token != "":
+            stems.append(token)
+        if token == 'гермион':
+            germiona.add(tok_sent[i])
+            k_germiona_Filosofsky_Kamen += 1
+        elif token == 'альбус':
+            albus.add(tok_sent[i])
+            k_albus_Filosofsky_Kamen += 1
+        elif token == 'добб':
+            dobby.add(tok_sent[i])
+            k_dobby_Filosofsky_Kamen += 1
+    f.close()
+
+with open("Garri_Potter_I_Kubok_Ognya.txt", "r") as f:
+    text = f.read()
+    tok_sent = word_tokenize(text)
+    stems = []
+    k_germiona_Kubok_Ognya = 0
+    k_albus_Kubok_Ognya = 0
+    k_dobby_Kubok_Ognya = 0
+    stemmer = SnowballStemmer("russian")
+    for i in range(len(tok_sent)):
+        token = stemmer.stem(tok_sent[i])
+        if token != "":
+            stems.append(token)
+        if token == 'гермион':
+            germiona.add(tok_sent[i])
+            k_germiona_Kubok_Ognya += 1
+        elif token == 'альбус':
+            albus.add(tok_sent[i])
+            k_albus_Kubok_Ognya += 1
+        elif token == 'добб':
+            dobby.add(tok_sent[i])
+            k_dobby_Kubok_Ognya += 1
+    f.close()
+
+with open("Garri_Potter_I_Orden_Fenixa.txt", "r") as f:
+    text = f.read()
+    tok_sent = word_tokenize(text)
+    stems = []
+    k_germiona_Orden_Fenixa = 0
+    k_albus_Orden_Fenixa = 0
+    k_dobby_Orden_Fenixa = 0
+    stemmer = SnowballStemmer("russian")
+    for i in range(len(tok_sent)):
+        token = stemmer.stem(tok_sent[i])
+        if token != "":
+            stems.append(token)
+        if token == 'гермион':
+            germiona.add(tok_sent[i])
+            k_germiona_Orden_Fenixa += 1
+        elif token == 'альбус':
+            albus.add(tok_sent[i])
+            k_albus_Orden_Fenixa += 1
+        elif token == 'добб':
+            dobby.add(tok_sent[i])
+            k_dobby_Orden_Fenixa += 1
+    f.close()
+
+with open("Garri_Potter_I_Taynaya_Komnata.txt", "r") as f:
+    text = f.read()
+    tok_sent = word_tokenize(text)
+    stems = []
+    k_germiona_Taynaya_Komnata = 0
+    k_albus_Taynaya_Komnata = 0
+    k_dobby_Taynaya_Komnata = 0
+    stemmer = SnowballStemmer("russian")
+    for i in range(len(tok_sent)):
+        token = stemmer.stem(tok_sent[i])
+        if token != "":
+            stems.append(token)
+        if token == 'гермион':
+            germiona.add(tok_sent[i])
+            k_germiona_Taynaya_Komnata += 1
+        elif token == 'альбус':
+            albus.add(tok_sent[i])
+            k_albus_Taynaya_Komnata += 1
+        elif token == 'добб':
+            dobby.add(tok_sent[i])
+            k_dobby_Taynaya_Komnata += 1
+    f.close()
+
+with open("Garri_Potter_I_Uznik_Azkabana.txt", "r") as f:
+    text = f.read()
+    tok_sent = word_tokenize(text)
+    stems = []
+    k_germiona_Uznik_Azkabana = 0
+    k_albus_Uznik_Azkabana = 0
+    k_dobby_Uznik_Azkabana = 0
+    stemmer = SnowballStemmer("russian")
+    for i in range(len(tok_sent)):
+        token = stemmer.stem(tok_sent[i])
+        if token != "":
+            stems.append(token)
+        if token == 'гермион':
+            germiona.add(tok_sent[i])
+            k_germiona_Uznik_Azkabana += 1
+        elif token == 'альбус':
+            albus.add(tok_sent[i])
+            k_albus_Uznik_Azkabana += 1
+        elif token == 'добб':
+            dobby.add(tok_sent[i])
+            k_dobby_Uznik_Azkabana += 1
+    f.close()
+
+
+data = [('Гермиона', germiona, 'Тайная комната: ' + str(k_germiona_Taynaya_Komnata), 'Узник Азкабана: ' + str(k_germiona_Uznik_Azkabana), 'Орден Феникса: ' + str(k_germiona_Orden_Fenixa), 'Кубок Огня: ' + str(k_germiona_Kubok_Ognya), 'Философский камень: ' + str(k_germiona_Filosofsky_Kamen)),
+        ('Альбус', albus, 'Тайная комната: ' + str(k_albus_Taynaya_Komnata), 'Узник Азкабана: ' + str(k_albus_Uznik_Azkabana), 'Орден Феникса: ' + str(k_albus_Orden_Fenixa), 'Кубок Огня: ' + str(k_albus_Kubok_Ognya), 'Философский камень: ' + str(k_albus_Filosofsky_Kamen)),
+        ('Добби', dobby, 'Тайная комната: ' + str(k_dobby_Taynaya_Komnata), 'Узник Азкабана: ' + str(k_dobby_Uznik_Azkabana), 'Орден Феникса: ' + str(k_dobby_Orden_Fenixa), 'Кубок Огня: ' + str(k_dobby_Kubok_Ognya), 'Философский камень: ' + str(k_dobby_Filosofsky_Kamen))]
+
+with open('result.csv', 'w') as f:
+    writer = csv.writer(f, delimiter=',')
+    writer.writerows(data)
+
+with open('result.csv', 'r') as f:
+    reader = csv.reader(fp, delimiter=',', quotechar='"')
+    data_read = [row for row in reader]
+
+print(data_read)
+
